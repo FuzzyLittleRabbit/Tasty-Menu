@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+*, *::before, *::after {
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
+  }
+body {
+    margin: 0;
+    padding: 0;
+    background: rgb(255,215,0);
+}
+
+/*THIS BEGINS THE NAVBAR IMPLEMENTATION*/
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: white;
+}
+
+.navbar-links ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar-links li {
+    list-style: none;
+}
+
+.navbar-links li a {
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+    display: block;
+    transition: all 0.3s ease 0s;
+}
+
+.navbar-links li a:hover {
+  color: gold;
+}
+
+.brand-title {
+    font-size: 1.5rem;
+    margin: .5rem;
+}
+
+.logo {
+    height: 75px;
+    width: 75px;
+}
+
+.toggle-button {
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.toggle-button .bar {
+    height: 3px;
+    width: 100%;
+    background-color: #ffd700;
+    border-radius: 10px;
+}
+
+
+/*THIS BEGINS THE FOOTER STYLING SECTION*/
+footer {
+    align-items: center;
+    background-color: black;
+    color: white;
+    display: flex;
+    font-family: 'Montserrat', sans-serif;
+    padding: 20px;
+    width:100%;
+}
+
+.phone-number a:hover {
+    color: red;
+}
+
+/* THIS BEGINS THE CSS FOR THE CARDS*/
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.card {
+    --padding: 1rem;
+    background: black;
+    color:hsl(51, 100%, 50%);
+    border: 1px solid #777;
+    border-radius: .25rem;
+    overflow: hidden;
+}
+
+.card.card-shadow{
+    border: none;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .2);
+}
+
+.card-header {
+  font-size: 1.5rem;
+  margin-bottom: .5rem;
+  padding: var(--padding);
+  padding-bottom: 0;
+}
+
+.card-header.card-image {
+    overflow: hidden;
+    padding: 0;
+}
+
+.card-header.card-image > img {
+    display: block;
+    width: 100%;
+    max-height: 200px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: center;
+}
+
+.card:hover > .card-header.card-image > img {
+    transform: scale(1.025);
+    transition: 200ms transform ease-in-out;
+}
+.card-body {
+  font-size: .9rem;
+  padding: 0 var(--padding);
+  padding-top: 0;
+}
+
+.card-footer {
+  margin-top: 1rem;
+  padding: var(--padding);
+}
+
+.btn {
+  /* Create a var to call gold*/
+  --color: hsl(51, 100%, 50%);
+  background: var(--color);
+  color: white;
+  border: none;
+  font-size: 1rem;
+  padding: .5em .75em;
+  border-radius: .25em;
+  cursor: pointer;
+}
+
+.btn:hover, .btn:focus {
+  background: hsl(51, 100%, 50%);
+}
+
+.btn.btn-outline {
+  background: none;
+  border: 1px solid var(--color);
+  color: var(--color);
+}
+
+.btn.btn-outline:hover, .btn.btn-outline:focus {
+  background: hsl(51, 100%, 100%);
+}
+
+/*Puts space between buttons*/
+.btn + .btn {
+  margin-left: .25rem;
+}
+
+/* THIS BEGINS THE MEDIA QUERY SECTION THAT TURNS INTO HAMBURGER BUN WITH SHRINKING 
+SCREEN*/
+@media (max-width: 600px) {
+    .toggle-button {
+        display: flex;
+    }
+
+    .navbar-links {
+       display: none;
+       width: 100%;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-links ul {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .navbar-links li {
+        text-align: center;
+    }
+
+    .navbar-links li a {
+        padding: .5rem 1rem;
+    }
+
+    .navbar-links li {
+        text-align: center;
+    }
+
+    .navbar-links li a {
+        padding: .5rem 1rem;
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+}
